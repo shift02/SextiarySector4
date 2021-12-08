@@ -1,20 +1,31 @@
 package shift.sextiarysector;
 
+import net.minecraft.client.renderer.BiomeColors;
+import net.minecraft.client.renderer.ItemBlockRenderTypes;
+import net.minecraft.client.renderer.RenderType;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.FoliageColor;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
+import net.minecraftforge.client.event.ColorHandlerEvent;
 import net.minecraftforge.common.MinecraftForge;
+import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
+import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.event.server.ServerStartingEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
+import net.minecraftforge.fml.event.lifecycle.FMLClientSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.FMLCommonSetupEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModEnqueueEvent;
 import net.minecraftforge.fml.event.lifecycle.InterModProcessEvent;
 import net.minecraftforge.fml.javafmlmod.FMLJavaModLoadingContext;
+import net.minecraftforge.registries.DeferredRegister;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.IForgeRegistry;
+import net.minecraftforge.registries.IForgeRegistryEntry;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 
@@ -28,6 +39,11 @@ public class SextiarySector4 {
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
 
+    public static final DeferredRegister<Item> ITEMS = create(ForgeRegistries.ITEMS);
+    public static final DeferredRegister<Block> BLOCKS = create(ForgeRegistries.BLOCKS);
+    public static final DeferredRegister<GlobalLootModifierSerializer<?>> LOOT_MODIFIER = create(ForgeRegistries.LOOT_MODIFIER_SERIALIZERS);
+
+
     public SextiarySector4() {
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
@@ -38,6 +54,16 @@ public class SextiarySector4 {
 
         // Register ourselves for server and other game events we are interested in
         MinecraftForge.EVENT_BUS.register(this);
+
+        //各種登録
+        ITEMS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        SSItems.register();
+
+        BLOCKS.register(FMLJavaModLoadingContext.get().getModEventBus());
+        SSBlocks.register();
+
+        LOOT_MODIFIER.register(FMLJavaModLoadingContext.get().getModEventBus());
+        SSLootModifiers.register();
     }
 
     private void setup(final FMLCommonSetupEvent event)
@@ -79,6 +105,7 @@ public class SextiarySector4 {
             //blockRegistryEvent.getRegistry().register(new Block(BlockBehaviour.Properties.of(Material.STONE)));
 
         }
+        /*
         @SubscribeEvent
         public static void onItemsRegistry(final RegistryEvent.Register<Item> itemRegistryEvent) {
             IForgeRegistry<Item> registry = itemRegistryEvent.getRegistry();
@@ -86,7 +113,13 @@ public class SextiarySector4 {
             //テストアイテムを追加
             registry.register(new Item(new Item.Properties().tab(CreativeModeTab.TAB_FOOD)).setRegistryName("test"));
 
-        }
+        }*/
+
     }
+
+    private static <T extends IForgeRegistryEntry<T>> DeferredRegister<T> create(IForgeRegistry<T> registry) {
+        return DeferredRegister.create(registry, SextiarySector4.MOD_ID);
+    }
+
 }
 
