@@ -1,0 +1,83 @@
+{
+  "multipart": [
+    {
+      "when": {
+        "east": "false",
+        "west": "false"
+      },
+      "apply": {
+        "model": "sextiarysector4:block/leaf_bed_leaf_base",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "west": "false"
+      },
+      "apply": {
+        "model": "sextiarysector4:block/leaf_bed_leaf_west",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "false",
+        "west": "true"
+      },
+      "apply": {
+        "model": "sextiarysector4:block/leaf_bed_leaf_east",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "true",
+        "west": "true"
+      },
+      "apply": {
+        "model": "sextiarysector4:block/leaf_bed_leaf_full",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "north": "false"
+      },
+      "apply": {
+        "model": "sextiarysector4:block/leaf_bed_top_wood",
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "east": "false"
+      },
+      "apply": {
+        "model": "sextiarysector4:block/leaf_bed_bottom_wood",
+        "y": 90,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "south": "false"
+      },
+      "apply": {
+        "model": "sextiarysector4:block/leaf_bed_top_wood",
+        "y": 180,
+        "uvlock": true
+      }
+    },
+    {
+      "when": {
+        "west": "false"
+      },
+      "apply": {
+        "model": "sextiarysector4:block/leaf_bed_bottom_wood",
+        "y": 270,
+        "uvlock": true
+      }
+    }
+  ]
+}

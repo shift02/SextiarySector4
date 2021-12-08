@@ -1,0 +1,12 @@
+{
+  "conditions": [
+    {
+      "condition": "minecraft:entity_properties",
+      "predicate": {
+        "type": "minecraft:zombie"
+      },
+      "entity": "this"
+    }
+  ],
+  "type": "sextiarysector4:drop_leaf"
+}

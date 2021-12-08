@@ -1,0 +1,15 @@
+{
+  "replace": false,
+  "entries": [
+    "sextiarysector4:drop_leaf_form_acacia_leaves",
+    "sextiarysector4:drop_leaf_form_fishing",
+    "sextiarysector4:drop_leaf_form_flowering_azalea_leaves",
+    "sextiarysector4:drop_leaf_form_zombie",
+    "sextiarysector4:drop_leaf_form_oak_leaves",
+    "sextiarysector4:drop_leaf_form_jungle_leaves",
+    "sextiarysector4:drop_leaf_form_dark_oak_leaves",
+    "sextiarysector4:drop_leaf_form_birch_leaves",
+    "sextiarysector4:drop_leaf_form_spruce_leaves",
+    "sextiarysector4:drop_leaf_form_azalea_leaves"
+  ]
+}
