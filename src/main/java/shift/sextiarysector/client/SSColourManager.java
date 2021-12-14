@@ -22,6 +22,19 @@ public class SSColourManager {
             return blockAndTintGetter != null && blockPos != null ? BiomeColors.getAverageFoliageColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor();
         }, SSBlocks.LEAF_BED.get());
 
+        event.getBlockColors().register((blockState, blockAndTintGetter, blockPos, __) -> {
+            return 0x58c758;
+        }, SSBlocks.LEAF_BLOCK.get());
+
+    }
+
+    @SubscribeEvent
+    public static void registerBlockColourHandlers(final ColorHandlerEvent.Item event) {
+
+        event.getItemColors().register((itemStack, i) -> {
+            return 0x58c758;
+        }, SSBlocks.LEAF_BLOCK.get());
+
     }
 
 }

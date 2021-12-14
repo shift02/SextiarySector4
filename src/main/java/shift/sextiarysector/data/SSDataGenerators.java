@@ -6,8 +6,9 @@ import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import shift.sextiarysector.SextiarySector4;
-import shift.sextiarysector.data.client.SSBlockStateProvider;
 import shift.sextiarysector.data.client.SSItemModelProvider;
+import shift.sextiarysector.data.client.block.LeafBedBlockStateProvider;
+import shift.sextiarysector.data.client.block.SSBlockStateProvider;
 
 /**
  * SS4の各種Jsonを出力する
@@ -28,10 +29,16 @@ public final class SSDataGenerators {
 
         gen.addProvider(new SSLootTableProvider(gen));
 
-        //client側
-        gen.addProvider(new SSItemModelProvider(gen, existingFileHelper));
-        gen.addProvider(new SSBlockStateProvider(gen, existingFileHelper));
 
+        //client側
+        gen.addProvider(new SSLanguageProvider(gen));
+
+        //Block
+        gen.addProvider(new SSBlockStateProvider(gen, existingFileHelper));
+        gen.addProvider(new LeafBedBlockStateProvider(gen, existingFileHelper));
+
+        //Item
+        gen.addProvider(new SSItemModelProvider(gen, existingFileHelper));
 
     }
 

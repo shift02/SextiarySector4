@@ -1,0 +1,18 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "WWW",
+    "###"
+  ],
+  "key": {
+    "#": {
+      "tag": "minecraft:planks"
+    },
+    "W": {
+      "item": "sextiarysector4:leaf_block"
+    }
+  },
+  "result": {
+    "item": "sextiarysector4:leaf_bed"
+  }
+}

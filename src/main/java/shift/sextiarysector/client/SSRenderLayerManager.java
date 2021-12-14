@@ -20,6 +20,8 @@ public class SSRenderLayerManager {
         event.enqueueWork(() -> {
             //透明なテクスチャ
             ItemBlockRenderTypes.setRenderLayer(SSBlocks.LEAF_BED.get(), RenderType.cutout());
+
+            ItemBlockRenderTypes.setRenderLayer(SSBlocks.LEAF_BLOCK.get(), RenderType.cutout());
         });
     }
 

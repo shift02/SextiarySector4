@@ -21,6 +21,8 @@ public class SSBlockLootTables extends BlockLoot {
         //葉っぱベッド
         this.add(SSBlocks.LEAF_BED.get(), (block) -> createSinglePropConditionTable(block, LeafBlock.PART, BedPart.HEAD));
 
+        dropSelf(SSBlocks.LEAF_BLOCK.get());
+
         /*
         for (RegistryObject<Block> entry : SextiarySector4.BLOCKS.getEntries()) {
             dropSelf(entry.get());

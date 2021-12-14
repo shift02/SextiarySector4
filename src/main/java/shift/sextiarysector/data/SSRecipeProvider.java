@@ -1,14 +1,14 @@
 package shift.sextiarysector.data;
 
 import net.minecraft.data.DataGenerator;
-import net.minecraft.data.recipes.FinishedRecipe;
-import net.minecraft.data.recipes.RecipeProvider;
-import net.minecraft.data.recipes.ShapelessRecipeBuilder;
-import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
+import net.minecraft.data.recipes.*;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.Items;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.block.Blocks;
+import shift.sextiarysector.SSBlocks;
+import shift.sextiarysector.SSItems;
 import shift.sextiarysector.SextiarySector4;
 
 import java.util.function.Consumer;
@@ -34,6 +34,24 @@ public class SSRecipeProvider extends RecipeProvider {
                         Items.DIAMOND, 0.7f, 200)
                 .unlockedBy("has_item", has(Blocks.DIRT))
                 .save(consumer, modId("dirt_to_diamond_from_campfire_cooking"));
+
+        //草
+        ShapedRecipeBuilder.shaped(SSBlocks.LEAF_BLOCK.get())
+                .define('#', SSItems.LEAF.get())
+                .pattern("###")
+                .pattern("###")
+                .pattern("###")
+                .unlockedBy("has_item", has(SSItems.LEAF.get()))
+                .save(consumer);
+
+        //草ベッド
+        ShapedRecipeBuilder.shaped(SSBlocks.LEAF_BED.get())
+                .define('#', ItemTags.PLANKS)
+                .define('W', SSBlocks.LEAF_BLOCK.get())
+                .pattern("WWW")
+                .pattern("###")
+                .unlockedBy("has_item", has(SSItems.LEAF.get()))
+                .save(consumer);
 
     }
 

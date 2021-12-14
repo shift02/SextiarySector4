@@ -23,13 +23,15 @@ public class SSItemModelProvider extends ItemModelProvider {
         //simpleItem(itemGenerated, "leaf");
 
         for (RegistryObject<Item> entry : SextiarySector4.ITEMS.getEntries()) {
-            if(entry.get() instanceof ISimpleTexture simpleTexture){
+            if (entry.get() instanceof ISimpleTexture simpleTexture) {
                 String textureName = simpleTexture.getTextureName();
-                simpleItem(itemGenerated, textureName != null ? textureName:entry.getId().getPath());
+                simpleItem(itemGenerated, textureName != null ? textureName : entry.getId().getPath());
             }
         }
 
         simpleItem(itemGenerated, "leaf_bed");
+
+        withExistingParent("leaf_block", modLoc("block/leaf_block"));
 
     }
 

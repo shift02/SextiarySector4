@@ -1,4 +1,4 @@
-package shift.sextiarysector.data.client;
+package shift.sextiarysector.data.client.block;
 
 import net.minecraft.core.Direction;
 import net.minecraft.data.DataGenerator;
@@ -11,9 +11,9 @@ import shift.sextiarysector.SSBlocks;
 import shift.sextiarysector.SextiarySector4;
 import shift.sextiarysector.block.LeafBlock;
 
-public class SSBlockStateProvider extends BlockStateProvider {
+public class LeafBedBlockStateProvider extends BlockStateProvider {
 
-    public SSBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
+    public LeafBedBlockStateProvider(DataGenerator gen, ExistingFileHelper exFileHelper) {
         super(gen, SextiarySector4.MOD_ID, exFileHelper);
     }
 

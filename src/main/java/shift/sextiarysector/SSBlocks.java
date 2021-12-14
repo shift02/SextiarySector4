@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.RegistryObject;
 import shift.sextiarysector.block.LeafBlock;
+import shift.sextiarysector.item.SSBaseBlockItem;
 
 import java.util.function.Function;
 import java.util.function.Supplier;
@@ -19,11 +20,17 @@ import java.util.function.Supplier;
  */
 public class SSBlocks {
 
+    public static final RegistryObject<Block> LEAF_BLOCK = registerBlockWithCustomItem("leaf_block", () ->
+                    new Block(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2F).noOcclusion()),
+            (RegistryObject<Block> ret) -> () ->
+                    new SSBaseBlockItem(ret.get(), new Item.Properties().tab(SSTabs.TAB_CORE)).setBurnTime(450)
+    );
+
     public static final RegistryObject<Block> LEAF_BED = registerBlockWithCustomItem("leaf_bed", () ->
                     new LeafBlock(BlockBehaviour.Properties.of(Material.LEAVES)
                             .sound(SoundType.GRASS).strength(0.2F).noOcclusion()),
             (RegistryObject<Block> ret) -> () ->
-                    new BedItem(ret.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS))
+                    new BedItem(ret.get(), new Item.Properties().tab(SSTabs.TAB_CORE))
     );
 
     static void register() {
