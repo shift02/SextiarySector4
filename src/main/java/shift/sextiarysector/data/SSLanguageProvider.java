@@ -35,7 +35,7 @@ public class SSLanguageProvider extends LanguageProvider {
     }
 
     private void addCreativeModeTabs() {
-        add(SSTabs.TAB_CORE, "SextiarySector4 Core");
+        add(SSTabs.TAB_CORE, "SextiarySector4 -Core-");
     }
 
     public void add(SSCoreCreativeModeTab key, String name) {

@@ -11,8 +11,8 @@ public class SSCoreCreativeModeTab extends CreativeModeTab {
     private String langId;
 
     public SSCoreCreativeModeTab() {
-        super(SextiarySector4.MOD_ID + "_core");
-        langId = SextiarySector4.MOD_ID + "_core";
+        super(SextiarySector4.MOD_ID + ".core");
+        langId = SextiarySector4.MOD_ID + ".core";
     }
 
     @Override
