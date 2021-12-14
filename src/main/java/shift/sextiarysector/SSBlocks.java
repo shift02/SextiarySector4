@@ -20,17 +20,14 @@ import java.util.function.Supplier;
  */
 public class SSBlocks {
 
-    public static final RegistryObject<Block> LEAF_BLOCK = registerBlockWithCustomItem("leaf_block", () ->
-                    new Block(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2F).noOcclusion()),
-            (RegistryObject<Block> ret) -> () ->
-                    new SSBaseBlockItem(ret.get(), new Item.Properties().tab(SSTabs.TAB_CORE)).setBurnTime(450)
+    public static final RegistryObject<Block> LEAF_BLOCK = registerBlockWithCustomItem("leaf_block",
+            () -> new Block(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2F).noOcclusion()),
+            block -> new SSBaseBlockItem(block, new Item.Properties().tab(SSTabs.TAB_CORE)).setBurnTime(450)
     );
 
-    public static final RegistryObject<Block> LEAF_BED = registerBlockWithCustomItem("leaf_bed", () ->
-                    new LeafBlock(BlockBehaviour.Properties.of(Material.LEAVES)
-                            .sound(SoundType.GRASS).strength(0.2F).noOcclusion()),
-            (RegistryObject<Block> ret) -> () ->
-                    new BedItem(ret.get(), new Item.Properties().tab(SSTabs.TAB_CORE))
+    public static final RegistryObject<Block> LEAF_BED = registerBlockWithCustomItem("leaf_bed",
+            () -> new LeafBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2F).noOcclusion()),
+            block -> new BedItem(block, new Item.Properties().tab(SSTabs.TAB_CORE))
     );
 
     static void register() {
@@ -46,9 +43,9 @@ public class SSBlocks {
     /**
      * 特殊なBlockItemの登録
      */
-    private static <T extends Block, X extends BlockItem> RegistryObject<T> registerBlockWithCustomItem(String name, Supplier<T> block, Function<RegistryObject<T>, Supplier<X>> item) {
+    private static <T extends Block, X extends BlockItem> RegistryObject<T> registerBlockWithCustomItem(String name, Supplier<T> block, Function<T, X> item) {
         RegistryObject<T> ret = registerBlockOnly(name, block);
-        SextiarySector4.ITEMS.register(name, item.apply(ret));
+        SextiarySector4.ITEMS.register(name, () -> item.apply(ret.get()));
         return ret;
     }
 
