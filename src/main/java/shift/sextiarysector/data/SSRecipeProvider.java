@@ -4,8 +4,10 @@ import net.minecraft.data.DataGenerator;
 import net.minecraft.data.recipes.FinishedRecipe;
 import net.minecraft.data.recipes.RecipeProvider;
 import net.minecraft.data.recipes.ShapedRecipeBuilder;
+import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
+import net.minecraft.world.item.crafting.Ingredient;
 import shift.sextiarysector.SSBlocks;
 import shift.sextiarysector.SSItems;
 import shift.sextiarysector.SextiarySector4;
@@ -51,6 +53,13 @@ public class SSRecipeProvider extends RecipeProvider {
                 .pattern("###")
                 .unlockedBy("has_item", has(SSItems.LEAF.get()))
                 .save(consumer);
+
+        //イカ焼き
+        SimpleCookingRecipeBuilder.campfireCooking(
+                        Ingredient.of(SSItems.SQUID_SASHIMI.get()),
+                        SSItems.SQUID_GRILLED.get(), 0.7f, 200)
+                .unlockedBy("has_item", has(SSItems.SQUID_SASHIMI.get()))
+                .save(consumer, modId("squid_sashimi_to_squid_sashimi_from_campfire_cooking"));
 
     }
 

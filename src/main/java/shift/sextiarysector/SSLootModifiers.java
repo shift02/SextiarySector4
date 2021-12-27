@@ -1,10 +1,8 @@
 package shift.sextiarysector;
 
-import net.minecraft.world.item.CreativeModeTab;
-import net.minecraft.world.item.Item;
 import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
 import net.minecraftforge.registries.RegistryObject;
-import shift.sextiarysector.item.SSBaseItem;
+import shift.sextiarysector.loot.SSBaseLootModifier;
 import shift.sextiarysector.loot.SSLeafLootModifier;
 
 /**
@@ -12,8 +10,14 @@ import shift.sextiarysector.loot.SSLeafLootModifier;
  */
 public class SSLootModifiers {
 
+    //葉っぱ
     public static final RegistryObject<GlobalLootModifierSerializer<SSLeafLootModifier>> LEAF = SextiarySector4.LOOT_MODIFIER.register("drop_leaf", SSLeafLootModifier.Serializer::new);
 
-    static void register() {}
+    //イカの刺身
+    public static final RegistryObject<GlobalLootModifierSerializer<SSBaseLootModifier>> SQUID_SASHIMI = SextiarySector4.LOOT_MODIFIER.register("drop_squid_sashimi", SSBaseLootModifier.Serializer::new);
+
+
+    static void register() {
+    }
 
 }

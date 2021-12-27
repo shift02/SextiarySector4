@@ -17,8 +17,10 @@ import net.minecraft.world.level.storage.loot.predicates.*;
 import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 import net.minecraftforge.registries.ForgeRegistries;
+import shift.sextiarysector.SSItems;
 import shift.sextiarysector.SSLootModifiers;
 import shift.sextiarysector.SextiarySector4;
+import shift.sextiarysector.loot.SSBaseLootModifier;
 import shift.sextiarysector.loot.SSLeafLootModifier;
 
 import java.util.Map;
@@ -62,6 +64,17 @@ public class SSGlobalLootModifierProvider extends GlobalLootModifierProvider {
         add("drop_leaf_form_fishing", SSLootModifiers.LEAF.get(), new SSLeafLootModifier(new LootItemCondition[]{
                 LootTableIdCondition.builder(new ResourceLocation("minecraft", "gameplay/fishing")).build()
         }));
+
+        //イカから刺し身のドロップ
+        add("drop_squid_sashimi_form_squid", SSLootModifiers.SQUID_SASHIMI.get(), new SSBaseLootModifier(
+                new LootItemCondition[]{
+                        LootItemEntityPropertyCondition.hasProperties(
+                                LootContext.EntityTarget.THIS,
+                                EntityPredicate.Builder.entity().of(EntityType.SQUID)
+                        ).build()
+                },
+                SSItems.SQUID_SASHIMI.get().asItem()
+        ));
 
 
     }

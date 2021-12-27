@@ -1,6 +1,11 @@
 {
   "block.sextiarysector4.leaf_bed": "Leaf Bed",
   "block.sextiarysector4.leaf_block": "Leaf Block",
+  "block.sextiarysector4.spile": "Spile",
   "item.sextiarysector4.leaf": "Leaf",
-  "itemGroup.sextiarysector4.core": "SextiarySector4 -Core-"
+  "item.sextiarysector4.squid_grilled": "Squid Grilled",
+  "item.sextiarysector4.squid_sashimi": "Squid Sashimi",
+  "itemGroup.sextiarysector4.core": "SextiarySector4 -Core-",
+  "itemGroup.sextiarysector4.fisheries": "SextiarySector4 -Fisheries-",
+  "itemGroup.sextiarysector4.forestry": "SextiarySector4 -Forestry-"
 }

@@ -32,10 +32,14 @@ public class SSLanguageProvider extends LanguageProvider {
 
     private void addItems() {
         addItem(SSItems.LEAF, "Leaf");
+
+        addItem(SSItems.SQUID_SASHIMI, "Squid Sashimi");
+        addItem(SSItems.SQUID_GRILLED, "Squid Grilled");
     }
 
     private void addCreativeModeTabs() {
         add(SSTabs.TAB_CORE, "SextiarySector4 -Core-");
+        add(SSTabs.TAB_FISHERIES, "SextiarySector4 -Fisheries-");
     }
 
     public void add(SSCoreCreativeModeTab key, String name) {
