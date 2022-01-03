@@ -22,6 +22,8 @@ public class SSRenderLayerManager {
             ItemBlockRenderTypes.setRenderLayer(SSBlocks.LEAF_BED.get(), RenderType.cutout());
 
             ItemBlockRenderTypes.setRenderLayer(SSBlocks.LEAF_BLOCK.get(), RenderType.cutout());
+
+            ItemBlockRenderTypes.setRenderLayer(SSBlocks.SPILE.get(), RenderType.cutout());
         });
     }
 

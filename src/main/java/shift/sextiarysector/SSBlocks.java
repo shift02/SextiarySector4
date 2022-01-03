@@ -10,6 +10,7 @@ import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.RegistryObject;
 import shift.sextiarysector.block.LeafBlock;
+import shift.sextiarysector.block.SpileBlock;
 import shift.sextiarysector.item.SSBaseBlockItem;
 
 import java.util.function.Function;
@@ -20,6 +21,9 @@ import java.util.function.Supplier;
  */
 public class SSBlocks {
 
+    // ---------------------
+    // Core (コア)
+    // ---------------------
     public static final RegistryObject<Block> LEAF_BLOCK = registerBlockWithCustomItem("leaf_block",
             () -> new Block(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2F).noOcclusion()),
             block -> new SSBaseBlockItem(block, new Item.Properties().tab(SSTabs.TAB_CORE)).setBurnTime(450)
@@ -28,6 +32,14 @@ public class SSBlocks {
     public static final RegistryObject<Block> LEAF_BED = registerBlockWithCustomItem("leaf_bed",
             () -> new LeafBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.GRASS).strength(0.2F).noOcclusion()),
             block -> new BedItem(block, new Item.Properties().tab(SSTabs.TAB_CORE))
+    );
+
+    // ---------------------
+    // Forestry (林業)
+    // ---------------------
+    public static final RegistryObject<Block> SPILE = registerBlockWithCustomItem("spile",
+            () -> new SpileBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.METAL).strength(0.2F).noOcclusion().randomTicks()),
+            block -> new SSBaseBlockItem(block, new Item.Properties().tab(SSTabs.TAB_FISHERIES))
     );
 
     static void register() {

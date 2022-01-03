@@ -28,6 +28,8 @@ public class SSLanguageProvider extends LanguageProvider {
     private void addBlocks() {
         addBlock(SSBlocks.LEAF_BLOCK, "Leaf Block");
         addBlock(SSBlocks.LEAF_BED, "Leaf Bed");
+
+        addBlock(SSBlocks.SPILE, "Spile");
     }
 
     private void addItems() {
@@ -39,6 +41,7 @@ public class SSLanguageProvider extends LanguageProvider {
 
     private void addCreativeModeTabs() {
         add(SSTabs.TAB_CORE, "SextiarySector4 -Core-");
+        add(SSTabs.TAB_FORESTRY, "SextiarySector4 -Forestry-");
         add(SSTabs.TAB_FISHERIES, "SextiarySector4 -Fisheries-");
     }
 

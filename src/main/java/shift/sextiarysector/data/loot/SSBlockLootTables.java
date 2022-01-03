@@ -23,6 +23,8 @@ public class SSBlockLootTables extends BlockLoot {
 
         dropSelf(SSBlocks.LEAF_BLOCK.get());
 
+        dropSelf(SSBlocks.SPILE.get());
+
         /*
         for (RegistryObject<Block> entry : SextiarySector4.BLOCKS.getEntries()) {
             dropSelf(entry.get());

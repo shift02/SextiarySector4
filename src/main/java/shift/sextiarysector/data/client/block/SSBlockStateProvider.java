@@ -35,6 +35,7 @@ public class SSBlockStateProvider extends BlockStateProvider {
                 .end();
         simpleBlock(SSBlocks.LEAF_BLOCK.get(), leafBlock);
 
+
     }
 
     private String name(Block block) {

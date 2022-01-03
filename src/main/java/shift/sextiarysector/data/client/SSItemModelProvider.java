@@ -33,6 +33,8 @@ public class SSItemModelProvider extends ItemModelProvider {
 
         withExistingParent("leaf_block", modLoc("block/leaf_block"));
 
+        simpleItem(itemGenerated, "spile");
+
     }
 
     private ItemModelBuilder simpleItem(ModelFile itemGenerated, String name) {

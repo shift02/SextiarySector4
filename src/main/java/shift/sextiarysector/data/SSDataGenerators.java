@@ -9,6 +9,7 @@ import shift.sextiarysector.SextiarySector4;
 import shift.sextiarysector.data.client.SSItemModelProvider;
 import shift.sextiarysector.data.client.block.LeafBedBlockStateProvider;
 import shift.sextiarysector.data.client.block.SSBlockStateProvider;
+import shift.sextiarysector.data.client.block.SpileBlockStateProvider;
 
 /**
  * SS4の各種Jsonを出力する
@@ -36,6 +37,7 @@ public final class SSDataGenerators {
         //Block
         gen.addProvider(new SSBlockStateProvider(gen, existingFileHelper));
         gen.addProvider(new LeafBedBlockStateProvider(gen, existingFileHelper));
+        gen.addProvider(new SpileBlockStateProvider(gen, existingFileHelper));
 
         //Item
         gen.addProvider(new SSItemModelProvider(gen, existingFileHelper));
