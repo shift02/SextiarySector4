@@ -5,8 +5,11 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import shift.sextiarysector.SSBlocks;
 import shift.sextiarysector.SextiarySector4;
+
+import static shift.sextiarysector.data.SSDataGenerators.RENDERTYPE_CUTOUT;
 
 /**
  * 樹液取るやつのモデル
@@ -23,6 +26,7 @@ public class SpileBlockStateProvider extends BlockStateProvider {
         final BlockModelBuilder spile = models()
                 .getBuilder(name(SSBlocks.SPILE.get()))
                 //.parent(models().getExistingFile(mcLoc("item/handheld")))
+                .renderType(RENDERTYPE_CUTOUT)
                 .texture("base", mcLoc("block/anvil"))
                 .texture("particle", "#base")
                 .element()
@@ -56,7 +60,7 @@ public class SpileBlockStateProvider extends BlockStateProvider {
     }
 
     private String name(Block block) {
-        return block.getRegistryName().getPath();
+        return ForgeRegistries.BLOCKS.getKey(block).getPath();
     }
 
 }

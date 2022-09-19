@@ -3,7 +3,7 @@ package shift.sextiarysector.client;
 import net.minecraft.client.renderer.BiomeColors;
 import net.minecraft.world.level.FoliageColor;
 import net.minecraftforge.api.distmarker.Dist;
-import net.minecraftforge.client.event.ColorHandlerEvent;
+import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import shift.sextiarysector.SSBlocks;
@@ -16,7 +16,7 @@ import shift.sextiarysector.SextiarySector4;
 public class SSColourManager {
 
     @SubscribeEvent
-    public static void registerBlockColourHandlers(final ColorHandlerEvent.Block event) {
+    public static void registerBlockColourHandlers(final RegisterColorHandlersEvent.Block event) {
 
         event.getBlockColors().register((blockState, blockAndTintGetter, blockPos, __) -> {
             return blockAndTintGetter != null && blockPos != null ? BiomeColors.getAverageFoliageColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor();
@@ -29,7 +29,7 @@ public class SSColourManager {
     }
 
     @SubscribeEvent
-    public static void registerBlockColourHandlers(final ColorHandlerEvent.Item event) {
+    public static void registerBlockColourHandlers(final RegisterColorHandlersEvent.Item event) {
 
         event.getItemColors().register((itemStack, i) -> {
             return 0x58c758;

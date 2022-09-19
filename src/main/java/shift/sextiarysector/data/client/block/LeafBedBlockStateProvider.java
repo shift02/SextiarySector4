@@ -7,9 +7,12 @@ import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.client.model.generators.MultiPartBlockStateBuilder;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import shift.sextiarysector.SSBlocks;
 import shift.sextiarysector.SextiarySector4;
 import shift.sextiarysector.block.LeafBlock;
+
+import static shift.sextiarysector.data.SSDataGenerators.RENDERTYPE_CUTOUT;
 
 public class LeafBedBlockStateProvider extends BlockStateProvider {
 
@@ -28,6 +31,7 @@ public class LeafBedBlockStateProvider extends BlockStateProvider {
         final BlockModelBuilder bottomWood = models()
                 .getBuilder(name(SSBlocks.LEAF_BED.get()) + "_bottom_wood")
                 .parent(models().getExistingFile(mcLoc("block/block")))
+                .renderType(RENDERTYPE_CUTOUT)
                 .texture("particle", "#wood")
                 .texture("wood", mcLoc("block/oak_planks"))
                 .element()
@@ -39,6 +43,7 @@ public class LeafBedBlockStateProvider extends BlockStateProvider {
         final BlockModelBuilder topWood = models()
                 .getBuilder(name(SSBlocks.LEAF_BED.get()) + "_top_wood")
                 .parent(models().getExistingFile(mcLoc("block/block")))
+                .renderType(RENDERTYPE_CUTOUT)
                 .texture("particle", "#wood")
                 .texture("wood", mcLoc("block/spruce_planks"))
                 .element()
@@ -99,6 +104,7 @@ public class LeafBedBlockStateProvider extends BlockStateProvider {
         return models()
                 .getBuilder(name(SSBlocks.LEAF_BED.get()) + "_leaf_" + name)
                 .parent(models().getExistingFile(mcLoc("block/block")))
+                .renderType(RENDERTYPE_CUTOUT)
                 .texture("particle", "#leaf_1")
                 .texture("leaf_1", mcLoc("block/acacia_leaves"))
                 .texture("leaf_2", mcLoc("block/spruce_leaves"))
@@ -121,7 +127,7 @@ public class LeafBedBlockStateProvider extends BlockStateProvider {
     }
 
     private String name(Block block) {
-        return block.getRegistryName().getPath();
+        return ForgeRegistries.BLOCKS.getKey(block).getPath();
     }
 
     private static final int DEFAULT_ANGLE_OFFSET = 180;

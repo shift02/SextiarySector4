@@ -18,8 +18,8 @@ import net.minecraftforge.common.data.GlobalLootModifierProvider;
 import net.minecraftforge.common.loot.LootTableIdCondition;
 import net.minecraftforge.registries.ForgeRegistries;
 import shift.sextiarysector.SSItems;
-import shift.sextiarysector.SSLootModifiers;
 import shift.sextiarysector.SextiarySector4;
+import shift.sextiarysector.loot.LootResult;
 import shift.sextiarysector.loot.SSBaseLootModifier;
 import shift.sextiarysector.loot.SSLeafLootModifier;
 
@@ -40,7 +40,7 @@ public class SSGlobalLootModifierProvider extends GlobalLootModifierProvider {
         //葉っぱBlockから葉っぱをドロップ
         for (Map.Entry<ResourceKey<Block>, Block> entry : ForgeRegistries.BLOCKS.getEntries()) {
             if (entry.getValue() instanceof LeavesBlock leavesBlock) {
-                add("drop_leaf_form_" + leavesBlock.getRegistryName().getPath(), SSLootModifiers.LEAF.get(), new SSLeafLootModifier(new LootItemCondition[]{
+                add("drop_leaf_form_" + entry.getKey().location().getPath(), new SSLeafLootModifier(new LootItemCondition[]{
                         InvertedLootItemCondition.invert(// Not
                                 AlternativeLootItemCondition.alternative( // OR
                                         //ハサミとシルクタッチの時発動しないように
@@ -54,26 +54,26 @@ public class SSGlobalLootModifierProvider extends GlobalLootModifierProvider {
         }
 
         //ゾンビからも葉っぱをドロップするように
-        add("drop_leaf_form_zombie", SSLootModifiers.LEAF.get(), new SSLeafLootModifier(new LootItemCondition[]{
+        add("drop_leaf_form_zombie", new SSLeafLootModifier(new LootItemCondition[]{
                 LootItemEntityPropertyCondition.hasProperties(
                         LootContext.EntityTarget.THIS,
                         EntityPredicate.Builder.entity().of(EntityType.ZOMBIE)
                 ).build()
         }));
 
-        add("drop_leaf_form_fishing", SSLootModifiers.LEAF.get(), new SSLeafLootModifier(new LootItemCondition[]{
+        add("drop_leaf_form_fishing", new SSLeafLootModifier(new LootItemCondition[]{
                 LootTableIdCondition.builder(new ResourceLocation("minecraft", "gameplay/fishing")).build()
         }));
 
         //イカから刺し身のドロップ
-        add("drop_squid_sashimi_form_squid", SSLootModifiers.SQUID_SASHIMI.get(), new SSBaseLootModifier(
+        add("drop_squid_sashimi_form_squid", new SSBaseLootModifier(
                 new LootItemCondition[]{
                         LootItemEntityPropertyCondition.hasProperties(
                                 LootContext.EntityTarget.THIS,
                                 EntityPredicate.Builder.entity().of(EntityType.SQUID)
                         ).build()
                 },
-                SSItems.SQUID_SASHIMI.get().asItem()
+                new LootResult(SSItems.SQUID_SASHIMI.get().asItem())
         ));
 
 

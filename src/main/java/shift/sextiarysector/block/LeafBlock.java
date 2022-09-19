@@ -3,7 +3,7 @@ package shift.sextiarysector.block;
 import net.minecraft.Util;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
-import net.minecraft.network.chat.TranslatableComponent;
+import net.minecraft.network.chat.Component;
 import net.minecraft.world.InteractionHand;
 import net.minecraft.world.InteractionResult;
 import net.minecraft.world.damagesource.DamageSource;
@@ -118,7 +118,7 @@ public class LeafBlock extends Block {
 
             //村人
             if (!this.kickVillagerOutOfBed(level, blockPos)) {
-                player.displayClientMessage(new TranslatableComponent("block.minecraft.bed.occupied"), true);
+                player.displayClientMessage(Component.translatable("block.minecraft.bed.occupied"), true);
             }
 
             return InteractionResult.SUCCESS;

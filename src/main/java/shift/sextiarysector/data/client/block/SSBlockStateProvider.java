@@ -5,8 +5,11 @@ import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.BlockModelBuilder;
 import net.minecraftforge.client.model.generators.BlockStateProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import shift.sextiarysector.SSBlocks;
 import shift.sextiarysector.SextiarySector4;
+
+import static shift.sextiarysector.data.SSDataGenerators.RENDERTYPE_CUTOUT;
 
 public class SSBlockStateProvider extends BlockStateProvider {
 
@@ -20,6 +23,7 @@ public class SSBlockStateProvider extends BlockStateProvider {
         final BlockModelBuilder leafBlock = models()
                 .getBuilder(name(SSBlocks.LEAF_BLOCK.get()))
                 .parent(models().getExistingFile(mcLoc("block/block")))
+                .renderType(RENDERTYPE_CUTOUT)
                 .texture("particle", "#all")
                 .texture("all", mcLoc("block/oak_leaves"))
                 .texture("all1", mcLoc("block/jungle_leaves"))
@@ -39,6 +43,6 @@ public class SSBlockStateProvider extends BlockStateProvider {
     }
 
     private String name(Block block) {
-        return block.getRegistryName().getPath();
+        return ForgeRegistries.BLOCKS.getKey(block).getPath();
     }
 }

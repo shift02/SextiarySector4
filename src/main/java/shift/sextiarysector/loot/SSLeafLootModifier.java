@@ -1,23 +1,27 @@
 package shift.sextiarysector.loot;
 
-import com.google.gson.JsonObject;
-import net.minecraft.resources.ResourceLocation;
+import com.google.common.base.Suppliers;
+import com.mojang.serialization.Codec;
+import com.mojang.serialization.codecs.RecordCodecBuilder;
+import it.unimi.dsi.fastutil.objects.ObjectArrayList;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.storage.loot.LootContext;
-import net.minecraft.world.level.storage.loot.predicates.LootItemBlockStatePropertyCondition;
 import net.minecraft.world.level.storage.loot.predicates.LootItemCondition;
-import net.minecraftforge.common.loot.GlobalLootModifierSerializer;
+import net.minecraftforge.common.loot.IGlobalLootModifier;
 import net.minecraftforge.common.loot.LootModifier;
 import org.jetbrains.annotations.NotNull;
 import shift.sextiarysector.SSItems;
 
-import java.util.Arrays;
-import java.util.List;
+import java.util.function.Supplier;
 
 /**
  * 葉っぱをドロップさせる処理
  */
 public class SSLeafLootModifier extends LootModifier {
+
+    public static final Supplier<Codec<SSLeafLootModifier>> CODEC = Suppliers.memoize(() -> RecordCodecBuilder.create(inst -> codecStart(inst)
+            .apply(inst, SSLeafLootModifier::new)
+    ));
 
     public SSLeafLootModifier(LootItemCondition[] conditionsIn) {
         super(conditionsIn);
@@ -25,24 +29,19 @@ public class SSLeafLootModifier extends LootModifier {
 
     @NotNull
     @Override
-    protected List<ItemStack> doApply(List<ItemStack> generatedLoot, LootContext context) {
+    protected ObjectArrayList<ItemStack> doApply(ObjectArrayList<ItemStack> generatedLoot, LootContext context) {
 
-        generatedLoot.add(new ItemStack(SSItems.LEAF.get(),1));
+        //実際のドロップリスト
+        //本当はJsonから取得してゴニョゴニョする必要がありそうだけど手抜き
+        generatedLoot.add(new ItemStack(SSItems.LEAF.get(), 1));
 
         return generatedLoot;
+
     }
 
-    public static class Serializer extends GlobalLootModifierSerializer<SSLeafLootModifier> {
-
-        @Override
-        public SSLeafLootModifier read(ResourceLocation name, JsonObject object, LootItemCondition[] conditionsIn) {
-            return new SSLeafLootModifier(conditionsIn);
-        }
-
-        @Override
-        public JsonObject write(SSLeafLootModifier instance) {
-            return this.makeConditions(instance.conditions);
-        }
+    @Override
+    public Codec<? extends IGlobalLootModifier> codec() {
+        return CODEC.get();
     }
-
+    
 }

@@ -1,10 +1,11 @@
 package shift.sextiarysector.data;
 
 import net.minecraft.data.DataGenerator;
+import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
-import net.minecraftforge.forge.event.lifecycle.GatherDataEvent;
 import shift.sextiarysector.SextiarySector4;
 import shift.sextiarysector.data.client.SSItemModelProvider;
 import shift.sextiarysector.data.client.block.LeafBedBlockStateProvider;
@@ -17,6 +18,8 @@ import shift.sextiarysector.data.client.block.SpileBlockStateProvider;
 @Mod.EventBusSubscriber(modid = SextiarySector4.MOD_ID, bus = Mod.EventBusSubscriber.Bus.MOD)
 public final class SSDataGenerators {
 
+    public static final ResourceLocation RENDERTYPE_CUTOUT = new ResourceLocation("cutout");
+
     private SSDataGenerators() {
     }
 
@@ -25,22 +28,22 @@ public final class SSDataGenerators {
         DataGenerator gen = event.getGenerator();
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
 
-        gen.addProvider(new SSRecipeProvider(gen));
-        gen.addProvider(new SSGlobalLootModifierProvider(gen));
+        gen.addProvider(event.includeServer(), new SSRecipeProvider(gen));
+        gen.addProvider(event.includeServer(), new SSGlobalLootModifierProvider(gen));
 
-        gen.addProvider(new SSLootTableProvider(gen));
+        gen.addProvider(event.includeServer(), new SSLootTableProvider(gen));
 
 
         //client側
-        gen.addProvider(new SSLanguageProvider(gen));
+        gen.addProvider(event.includeServer(), new SSLanguageProvider(gen));
 
         //Block
-        gen.addProvider(new SSBlockStateProvider(gen, existingFileHelper));
-        gen.addProvider(new LeafBedBlockStateProvider(gen, existingFileHelper));
-        gen.addProvider(new SpileBlockStateProvider(gen, existingFileHelper));
+        gen.addProvider(event.includeServer(), new SSBlockStateProvider(gen, existingFileHelper));
+        gen.addProvider(event.includeServer(), new LeafBedBlockStateProvider(gen, existingFileHelper));
+        gen.addProvider(event.includeServer(), new SpileBlockStateProvider(gen, existingFileHelper));
 
         //Item
-        gen.addProvider(new SSItemModelProvider(gen, existingFileHelper));
+        gen.addProvider(event.includeServer(), new SSItemModelProvider(gen, existingFileHelper));
 
     }
 
