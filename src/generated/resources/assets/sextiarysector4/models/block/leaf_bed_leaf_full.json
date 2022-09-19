@@ -1,13 +1,33 @@
 {
   "parent": "minecraft:block/block",
-  "textures": {
-    "particle": "#leaf_1",
-    "leaf_1": "minecraft:block/acacia_leaves",
-    "leaf_2": "minecraft:block/spruce_leaves",
-    "leaf_3": "minecraft:block/oak_leaves"
-  },
   "elements": [
     {
+      "faces": {
+        "down": {
+          "texture": "#leaf_1",
+          "tintindex": 0
+        },
+        "east": {
+          "texture": "#leaf_1",
+          "tintindex": 0
+        },
+        "north": {
+          "texture": "#leaf_1",
+          "tintindex": 0
+        },
+        "south": {
+          "texture": "#leaf_1",
+          "tintindex": 0
+        },
+        "up": {
+          "texture": "#leaf_1",
+          "tintindex": 0
+        },
+        "west": {
+          "texture": "#leaf_1",
+          "tintindex": 0
+        }
+      },
       "from": [
         0.001,
         0.01,
@@ -17,35 +37,35 @@
         15.999,
         1,
         15.999
-      ],
+      ]
+    },
+    {
       "faces": {
         "down": {
-          "texture": "#leaf_1",
-          "tintindex": 0
-        },
-        "up": {
-          "texture": "#leaf_1",
-          "tintindex": 0
-        },
-        "north": {
-          "texture": "#leaf_1",
-          "tintindex": 0
-        },
-        "south": {
-          "texture": "#leaf_1",
-          "tintindex": 0
-        },
-        "west": {
-          "texture": "#leaf_1",
+          "texture": "#leaf_2",
           "tintindex": 0
         },
         "east": {
-          "texture": "#leaf_1",
+          "texture": "#leaf_2",
+          "tintindex": 0
+        },
+        "north": {
+          "texture": "#leaf_2",
+          "tintindex": 0
+        },
+        "south": {
+          "texture": "#leaf_2",
+          "tintindex": 0
+        },
+        "up": {
+          "texture": "#leaf_2",
+          "tintindex": 0
+        },
+        "west": {
+          "texture": "#leaf_2",
           "tintindex": 0
         }
-      }
-    },
-    {
+      },
       "from": [
         0.001,
         1,
@@ -55,35 +75,35 @@
         15.999,
         2.001,
         15.999
-      ],
+      ]
+    },
+    {
       "faces": {
         "down": {
-          "texture": "#leaf_2",
-          "tintindex": 0
-        },
-        "up": {
-          "texture": "#leaf_2",
-          "tintindex": 0
-        },
-        "north": {
-          "texture": "#leaf_2",
-          "tintindex": 0
-        },
-        "south": {
-          "texture": "#leaf_2",
-          "tintindex": 0
-        },
-        "west": {
-          "texture": "#leaf_2",
+          "texture": "#leaf_3",
           "tintindex": 0
         },
         "east": {
-          "texture": "#leaf_2",
+          "texture": "#leaf_3",
+          "tintindex": 0
+        },
+        "north": {
+          "texture": "#leaf_3",
+          "tintindex": 0
+        },
+        "south": {
+          "texture": "#leaf_3",
+          "tintindex": 0
+        },
+        "up": {
+          "texture": "#leaf_3",
+          "tintindex": 0
+        },
+        "west": {
+          "texture": "#leaf_3",
           "tintindex": 0
         }
-      }
-    },
-    {
+      },
       "from": [
         0.001,
         2.001,
@@ -93,33 +113,14 @@
         15.999,
         3,
         15.999
-      ],
-      "faces": {
-        "down": {
-          "texture": "#leaf_3",
-          "tintindex": 0
-        },
-        "up": {
-          "texture": "#leaf_3",
-          "tintindex": 0
-        },
-        "north": {
-          "texture": "#leaf_3",
-          "tintindex": 0
-        },
-        "south": {
-          "texture": "#leaf_3",
-          "tintindex": 0
-        },
-        "west": {
-          "texture": "#leaf_3",
-          "tintindex": 0
-        },
-        "east": {
-          "texture": "#leaf_3",
-          "tintindex": 0
-        }
-      }
+      ]
     }
-  ]
+  ],
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "leaf_1": "minecraft:block/acacia_leaves",
+    "leaf_2": "minecraft:block/spruce_leaves",
+    "leaf_3": "minecraft:block/oak_leaves",
+    "particle": "#leaf_1"
+  }
 }

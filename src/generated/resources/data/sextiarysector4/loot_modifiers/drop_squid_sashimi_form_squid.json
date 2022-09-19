@@ -1,15 +1,15 @@
 {
+  "type": "sextiarysector4:drop_squid_sashimi",
   "conditions": [
     {
       "condition": "minecraft:entity_properties",
+      "entity": "this",
       "predicate": {
         "type": "minecraft:squid"
-      },
-      "entity": "this"
+      }
     }
   ],
   "result": {
     "item": "sextiarysector4:squid_sashimi"
-  },
-  "type": "sextiarysector4:drop_squid_sashimi"
+  }
 }

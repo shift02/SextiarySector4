@@ -1,12 +1,33 @@
 {
   "parent": "minecraft:block/block",
-  "textures": {
-    "particle": "#all",
-    "all": "minecraft:block/oak_leaves",
-    "all1": "minecraft:block/jungle_leaves"
-  },
   "elements": [
     {
+      "faces": {
+        "down": {
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "east": {
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "north": {
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "south": {
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "up": {
+          "texture": "#all",
+          "tintindex": 0
+        },
+        "west": {
+          "texture": "#all",
+          "tintindex": 0
+        }
+      },
       "from": [
         0,
         0,
@@ -16,35 +37,35 @@
         16,
         16,
         16
-      ],
+      ]
+    },
+    {
       "faces": {
         "down": {
-          "texture": "#all",
-          "tintindex": 0
-        },
-        "up": {
-          "texture": "#all",
-          "tintindex": 0
-        },
-        "north": {
-          "texture": "#all",
-          "tintindex": 0
-        },
-        "south": {
-          "texture": "#all",
-          "tintindex": 0
-        },
-        "west": {
-          "texture": "#all",
+          "texture": "#all1",
           "tintindex": 0
         },
         "east": {
-          "texture": "#all",
+          "texture": "#all1",
+          "tintindex": 0
+        },
+        "north": {
+          "texture": "#all1",
+          "tintindex": 0
+        },
+        "south": {
+          "texture": "#all1",
+          "tintindex": 0
+        },
+        "up": {
+          "texture": "#all1",
+          "tintindex": 0
+        },
+        "west": {
+          "texture": "#all1",
           "tintindex": 0
         }
-      }
-    },
-    {
+      },
       "from": [
         0.001,
         0.001,
@@ -54,33 +75,13 @@
         15.999,
         15.999,
         15.999
-      ],
-      "faces": {
-        "down": {
-          "texture": "#all1",
-          "tintindex": 0
-        },
-        "up": {
-          "texture": "#all1",
-          "tintindex": 0
-        },
-        "north": {
-          "texture": "#all1",
-          "tintindex": 0
-        },
-        "south": {
-          "texture": "#all1",
-          "tintindex": 0
-        },
-        "west": {
-          "texture": "#all1",
-          "tintindex": 0
-        },
-        "east": {
-          "texture": "#all1",
-          "tintindex": 0
-        }
-      }
+      ]
     }
-  ]
+  ],
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "all": "minecraft:block/oak_leaves",
+    "all1": "minecraft:block/jungle_leaves",
+    "particle": "#all"
+  }
 }

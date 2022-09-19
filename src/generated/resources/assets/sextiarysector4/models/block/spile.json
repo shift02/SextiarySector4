@@ -1,10 +1,26 @@
 {
-  "textures": {
-    "base": "minecraft:block/anvil",
-    "particle": "#base"
-  },
   "elements": [
     {
+      "faces": {
+        "down": {
+          "texture": "#base"
+        },
+        "east": {
+          "texture": "#base"
+        },
+        "north": {
+          "texture": "#base"
+        },
+        "south": {
+          "texture": "#base"
+        },
+        "up": {
+          "texture": "#base"
+        },
+        "west": {
+          "texture": "#base"
+        }
+      },
       "from": [
         6,
         4,
@@ -14,12 +30,14 @@
         10,
         8,
         1
-      ],
+      ]
+    },
+    {
       "faces": {
         "down": {
           "texture": "#base"
         },
-        "up": {
+        "east": {
           "texture": "#base"
         },
         "north": {
@@ -28,15 +46,13 @@
         "south": {
           "texture": "#base"
         },
-        "west": {
+        "up": {
           "texture": "#base"
         },
-        "east": {
+        "west": {
           "texture": "#base"
         }
-      }
-    },
-    {
+      },
       "from": [
         6,
         4,
@@ -46,12 +62,14 @@
         7,
         8,
         5
-      ],
+      ]
+    },
+    {
       "faces": {
         "down": {
           "texture": "#base"
         },
-        "up": {
+        "east": {
           "texture": "#base"
         },
         "north": {
@@ -60,15 +78,13 @@
         "south": {
           "texture": "#base"
         },
-        "west": {
+        "up": {
           "texture": "#base"
         },
-        "east": {
+        "west": {
           "texture": "#base"
         }
-      }
-    },
-    {
+      },
       "from": [
         9,
         4,
@@ -78,12 +94,14 @@
         10,
         8,
         5
-      ],
+      ]
+    },
+    {
       "faces": {
         "down": {
           "texture": "#base"
         },
-        "up": {
+        "east": {
           "texture": "#base"
         },
         "north": {
@@ -92,15 +110,13 @@
         "south": {
           "texture": "#base"
         },
-        "west": {
+        "up": {
           "texture": "#base"
         },
-        "east": {
+        "west": {
           "texture": "#base"
         }
-      }
-    },
-    {
+      },
       "from": [
         7,
         7,
@@ -110,12 +126,14 @@
         9,
         8,
         5
-      ],
+      ]
+    },
+    {
       "faces": {
         "down": {
           "texture": "#base"
         },
-        "up": {
+        "east": {
           "texture": "#base"
         },
         "north": {
@@ -124,15 +142,13 @@
         "south": {
           "texture": "#base"
         },
-        "west": {
+        "up": {
           "texture": "#base"
         },
-        "east": {
+        "west": {
           "texture": "#base"
         }
-      }
-    },
-    {
+      },
       "from": [
         7,
         4,
@@ -142,27 +158,12 @@
         9,
         5,
         5
-      ],
-      "faces": {
-        "down": {
-          "texture": "#base"
-        },
-        "up": {
-          "texture": "#base"
-        },
-        "north": {
-          "texture": "#base"
-        },
-        "south": {
-          "texture": "#base"
-        },
-        "west": {
-          "texture": "#base"
-        },
-        "east": {
-          "texture": "#base"
-        }
-      }
+      ]
     }
-  ]
+  ],
+  "render_type": "minecraft:cutout",
+  "textures": {
+    "base": "minecraft:block/anvil",
+    "particle": "#base"
+  }
 }

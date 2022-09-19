@@ -1,4 +1,5 @@
 {
+  "type": "sextiarysector4:drop_leaf",
   "conditions": [
     {
       "condition": "minecraft:inverted",
@@ -30,9 +31,8 @@
       }
     },
     {
-      "condition": "minecraft:block_state_property",
-      "block": "minecraft:oak_leaves"
+      "block": "minecraft:oak_leaves",
+      "condition": "minecraft:block_state_property"
     }
-  ],
-  "type": "sextiarysector4:drop_leaf"
+  ]
 }

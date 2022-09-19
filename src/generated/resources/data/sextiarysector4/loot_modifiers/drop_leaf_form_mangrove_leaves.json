@@ -31,7 +31,7 @@
       }
     },
     {
-      "block": "minecraft:dark_oak_leaves",
+      "block": "minecraft:mangrove_leaves",
       "condition": "minecraft:block_state_property"
     }
   ]
