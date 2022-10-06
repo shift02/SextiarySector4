@@ -39,7 +39,7 @@ public class SSBlocks {
     // ---------------------
     public static final RegistryObject<Block> SPILE = registerBlockWithCustomItem("spile",
             () -> new SpileBlock(BlockBehaviour.Properties.of(Material.LEAVES).sound(SoundType.METAL).strength(0.2F).noOcclusion().randomTicks()),
-            block -> new SSBaseBlockItem(block, new Item.Properties().tab(SSTabs.TAB_FISHERIES))
+            block -> new SSBaseBlockItem(block, new Item.Properties().tab(SSTabs.TAB_FORESTRY))
     );
 
     static void register() {
