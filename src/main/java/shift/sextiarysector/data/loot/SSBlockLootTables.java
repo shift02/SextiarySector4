@@ -2,6 +2,7 @@ package shift.sextiarysector.data.loot;
 
 import net.minecraft.data.loot.BlockLoot;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.properties.BedPart;
 import net.minecraftforge.registries.RegistryObject;
 import org.jetbrains.annotations.NotNull;
@@ -24,6 +25,8 @@ public class SSBlockLootTables extends BlockLoot {
         dropSelf(SSBlocks.LEAF_BLOCK.get());
 
         dropSelf(SSBlocks.SPILE.get());
+
+        dropOther(SSBlocks.SAP_CAULDRON.get(), Blocks.CAULDRON);
 
         /*
         for (RegistryObject<Block> entry : SextiarySector4.BLOCKS.getEntries()) {

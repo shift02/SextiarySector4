@@ -18,22 +18,31 @@ public class SSColourManager {
     @SubscribeEvent
     public static void registerBlockColourHandlers(final RegisterColorHandlersEvent.Block event) {
 
-        event.getBlockColors().register((blockState, blockAndTintGetter, blockPos, __) -> {
+
+        event.register((blockState, blockAndTintGetter, blockPos, tintIndex) -> {
             return blockAndTintGetter != null && blockPos != null ? BiomeColors.getAverageFoliageColor(blockAndTintGetter, blockPos) : FoliageColor.getDefaultColor();
         }, SSBlocks.LEAF_BED.get());
 
-        event.getBlockColors().register((blockState, blockAndTintGetter, blockPos, __) -> {
+        event.register((blockState, blockAndTintGetter, blockPos, tintIndex) -> {
             return 0x58c758;
         }, SSBlocks.LEAF_BLOCK.get());
+
+        event.register((blockState, blockAndTintGetter, blockPos, tintIndex) -> {
+            return 0xff8c00;
+        }, SSBlocks.SAP_CAULDRON.get());
 
     }
 
     @SubscribeEvent
     public static void registerBlockColourHandlers(final RegisterColorHandlersEvent.Item event) {
 
-        event.getItemColors().register((itemStack, i) -> {
+        event.register((itemStack, tintIndex) -> {
             return 0x58c758;
         }, SSBlocks.LEAF_BLOCK.get());
+
+        event.register((itemStack, tintIndex) -> {
+            return 0xff8c00;
+        }, SSBlocks.SAP_CAULDRON.get());
 
     }
 

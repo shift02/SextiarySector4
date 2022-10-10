@@ -2,11 +2,14 @@ package shift.sextiarysector.data.client;
 
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.level.block.Block;
 import net.minecraftforge.client.model.generators.ItemModelBuilder;
 import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.client.model.generators.ModelFile;
 import net.minecraftforge.common.data.ExistingFileHelper;
+import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
+import shift.sextiarysector.SSBlocks;
 import shift.sextiarysector.SextiarySector4;
 import shift.sextiarysector.item.ISimpleTexture;
 
@@ -35,9 +38,15 @@ public class SSItemModelProvider extends ItemModelProvider {
 
         simpleItem(itemGenerated, "spile");
 
+        withExistingParent(name(SSBlocks.SAP_CAULDRON.get()), modLoc("block/sap_cauldron_full"));
+
     }
 
     private ItemModelBuilder simpleItem(ModelFile itemGenerated, String name) {
         return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
+    }
+
+    private String name(Block block) {
+        return ForgeRegistries.BLOCKS.getKey(block).getPath();
     }
 }

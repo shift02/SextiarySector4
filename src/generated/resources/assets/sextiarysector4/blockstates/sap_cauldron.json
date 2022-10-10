@@ -1,0 +1,31 @@
+{
+  "multipart": [
+    {
+      "apply": {
+        "model": "sextiarysector4:block/sap_cauldron_level1",
+        "uvlock": true
+      },
+      "when": {
+        "level": "1"
+      }
+    },
+    {
+      "apply": {
+        "model": "sextiarysector4:block/sap_cauldron_level2",
+        "uvlock": true
+      },
+      "when": {
+        "level": "2"
+      }
+    },
+    {
+      "apply": {
+        "model": "sextiarysector4:block/sap_cauldron_full",
+        "uvlock": true
+      },
+      "when": {
+        "level": "3"
+      }
+    }
+  ]
+}

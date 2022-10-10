@@ -5,11 +5,13 @@ import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.CreativeModeTab;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.SoundType;
 import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraft.world.level.material.Material;
 import net.minecraftforge.registries.RegistryObject;
 import shift.sextiarysector.block.LeafBlock;
+import shift.sextiarysector.block.SapCauldronBlock;
 import shift.sextiarysector.block.SpileBlock;
 import shift.sextiarysector.item.SSBaseBlockItem;
 
@@ -42,6 +44,12 @@ public class SSBlocks {
             block -> new SSBaseBlockItem(block, new Item.Properties().tab(SSTabs.TAB_FORESTRY))
     );
 
+    //樹液入の大鎌
+    public static final RegistryObject<Block> SAP_CAULDRON = register("sap_cauldron",
+            () -> new SapCauldronBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)),
+            SSTabs.TAB_FORESTRY
+    );
+
     static void register() {
     }
 
@@ -61,9 +69,9 @@ public class SSBlocks {
         return ret;
     }
 
-    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block) {
+    private static <T extends Block> RegistryObject<T> register(String name, Supplier<T> block, CreativeModeTab pCategory) {
         RegistryObject<T> ret = registerBlockOnly(name, block);
-        SextiarySector4.ITEMS.register(name, () -> new BlockItem(ret.get(), new Item.Properties().tab(CreativeModeTab.TAB_BUILDING_BLOCKS)));
+        SextiarySector4.ITEMS.register(name, () -> new BlockItem(ret.get(), new Item.Properties().tab(pCategory)));
         return ret;
     }
 
