@@ -1,5 +1,6 @@
 package shift.sextiarysector.data.client.block;
 
+import com.google.common.collect.Lists;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.LayeredCauldronBlock;
@@ -10,6 +11,8 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import shift.sextiarysector.SSBlocks;
 import shift.sextiarysector.SextiarySector4;
+
+import java.util.List;
 
 import static shift.sextiarysector.data.SSDataGenerators.RENDERTYPE_CUTOUT;
 
@@ -43,44 +46,24 @@ public class SSBlockStateProvider extends BlockStateProvider {
 
 
         //樹液入ブロック
+        final List<String> multipartSapList = Lists.newArrayList("level1", "level2", "full");
         MultiPartBlockStateBuilder multipartBuilder = getMultipartBuilder(SSBlocks.SAP_CAULDRON.get());
 
-        final BlockModelBuilder sapCauldronLevel1 = models()
-                .getBuilder(name(SSBlocks.SAP_CAULDRON.get()) + "_level1")
-                .parent(models().getExistingFile(mcLoc("block/template_cauldron_level1")))
-                .texture("content", "minecraft:block/water_still");
+        for (int i = 0; i < multipartSapList.size(); i++) {
+            String multipartSap = multipartSapList.get(i);
 
-        multipartBuilder.part()
-                .modelFile(sapCauldronLevel1)
-                .uvLock(true)
-                .addModel()
-                .condition(LayeredCauldronBlock.LEVEL, 1)
-                .end();
+            final BlockModelBuilder sapCauldronLevel1 = models()
+                    .getBuilder(name(SSBlocks.SAP_CAULDRON.get()) + "_" + multipartSap)
+                    .parent(models().getExistingFile(mcLoc("block/template_cauldron_" + multipartSap)))
+                    .texture("content", "minecraft:block/water_still");
 
-        final BlockModelBuilder sapCauldronLevel2 = models()
-                .getBuilder(name(SSBlocks.SAP_CAULDRON.get()) + "_level2")
-                .parent(models().getExistingFile(mcLoc("block/template_cauldron_level2")))
-                .texture("content", "minecraft:block/water_still");
-
-        multipartBuilder.part()
-                .modelFile(sapCauldronLevel2)
-                .uvLock(true)
-                .addModel()
-                .condition(LayeredCauldronBlock.LEVEL, 2)
-                .end();
-
-        final BlockModelBuilder sapCauldronFull = models()
-                .getBuilder(name(SSBlocks.SAP_CAULDRON.get()) + "_full")
-                .parent(models().getExistingFile(mcLoc("block/template_cauldron_full")))
-                .texture("content", "minecraft:block/water_still");
-
-        multipartBuilder.part()
-                .modelFile(sapCauldronFull)
-                .uvLock(true)
-                .addModel()
-                .condition(LayeredCauldronBlock.LEVEL, 3)
-                .end();
-
+            multipartBuilder.part()
+                    .modelFile(sapCauldronLevel1)
+                    .uvLock(true)
+                    .addModel()
+                    .condition(LayeredCauldronBlock.LEVEL, i + 1)
+                    .end();
+        }
 
     }
 
