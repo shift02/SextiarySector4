@@ -45,7 +45,7 @@ public class SSBlocks {
     );
 
     //樹液入の大鎌
-    public static final RegistryObject<Block> SAP_CAULDRON = register("sap_cauldron",
+    public static final RegistryObject<SapCauldronBlock> SAP_CAULDRON = register("sap_cauldron",
             () -> new SapCauldronBlock(BlockBehaviour.Properties.copy(Blocks.CAULDRON)),
             SSTabs.TAB_FORESTRY
     );

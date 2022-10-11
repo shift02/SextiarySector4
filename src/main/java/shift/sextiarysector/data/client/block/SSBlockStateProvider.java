@@ -52,13 +52,13 @@ public class SSBlockStateProvider extends BlockStateProvider {
         for (int i = 0; i < multipartSapList.size(); i++) {
             String multipartSap = multipartSapList.get(i);
 
-            final BlockModelBuilder sapCauldronLevel1 = models()
+            final BlockModelBuilder sapCauldronLevel = models()
                     .getBuilder(name(SSBlocks.SAP_CAULDRON.get()) + "_" + multipartSap)
                     .parent(models().getExistingFile(mcLoc("block/template_cauldron_" + multipartSap)))
                     .texture("content", "minecraft:block/water_still");
 
             multipartBuilder.part()
-                    .modelFile(sapCauldronLevel1)
+                    .modelFile(sapCauldronLevel)
                     .uvLock(true)
                     .addModel()
                     .condition(LayeredCauldronBlock.LEVEL, i + 1)
