@@ -16,6 +16,12 @@ public class SSItems {
     public static final RegistryObject<Item> LEAF = SextiarySector4.ITEMS.register("leaf", () -> new SSBaseItem(new Item.Properties().tab(SSTabs.TAB_CORE)).setBurnTime(50));
 
     // ---------------------
+    // Forestry (林業)
+    // ---------------------
+    public static final RegistryObject<Item> SAP_BOTTLE = SextiarySector4.ITEMS.register("sap_bottle", () -> new SSBaseItem(
+            new Item.Properties().stacksTo(1).tab(SSTabs.TAB_FORESTRY)).enableCustomTexture());
+
+    // ---------------------
     // Fisheries (水産)
     // ---------------------
     public static final RegistryObject<Item> SQUID_SASHIMI = SextiarySector4.ITEMS.register("squid_sashimi", () -> new SSBaseItem(

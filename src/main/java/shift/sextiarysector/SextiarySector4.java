@@ -34,6 +34,7 @@ public class SextiarySector4 {
     public static final DeferredRegister<Block> BLOCKS = create(ForgeRegistries.BLOCKS);
     public static final DeferredRegister<Codec<? extends IGlobalLootModifier>> LOOT_MODIFIER = DeferredRegister.create(ForgeRegistries.Keys.GLOBAL_LOOT_MODIFIER_SERIALIZERS, SextiarySector4.MOD_ID);
 
+    public static final SSCauldrons CAULDRONS = new SSCauldrons();
 
     public SextiarySector4() {
         // Register the setup method for modloading
@@ -61,6 +62,9 @@ public class SextiarySector4 {
         // some preinit code
         LOGGER.info("HELLO FROM PREINIT");
         LOGGER.info("DIRT BLOCK >> {}", ForgeRegistries.BLOCKS.getKey(Blocks.DIRT));
+
+        CAULDRONS.setup(event);
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {

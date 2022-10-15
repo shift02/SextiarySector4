@@ -10,6 +10,7 @@ import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.ForgeRegistries;
 import net.minecraftforge.registries.RegistryObject;
 import shift.sextiarysector.SSBlocks;
+import shift.sextiarysector.SSItems;
 import shift.sextiarysector.SextiarySector4;
 import shift.sextiarysector.item.ISimpleTexture;
 
@@ -26,12 +27,15 @@ public class SSItemModelProvider extends ItemModelProvider {
         //simpleItem(itemGenerated, "leaf");
 
         for (RegistryObject<Item> entry : SextiarySector4.ITEMS.getEntries()) {
-            if (entry.get() instanceof ISimpleTexture simpleTexture) {
+            if (entry.get() instanceof ISimpleTexture simpleTexture && !simpleTexture.hasCustomTexture()) {
                 String textureName = simpleTexture.getTextureName();
                 simpleItem(itemGenerated, textureName != null ? textureName : entry.getId().getPath());
             }
         }
 
+        bottleItem(itemGenerated, name(SSItems.SAP_BOTTLE.get()));
+
+        //Block
         simpleItem(itemGenerated, "leaf_bed");
 
         withExistingParent("leaf_block", modLoc("block/leaf_block"));
@@ -44,6 +48,17 @@ public class SSItemModelProvider extends ItemModelProvider {
 
     private ItemModelBuilder simpleItem(ModelFile itemGenerated, String name) {
         return getBuilder(name).parent(itemGenerated).texture("layer0", "item/" + name);
+    }
+
+    private ItemModelBuilder bottleItem(ModelFile itemGenerated, String name) {
+        return getBuilder(name)
+                .parent(itemGenerated)
+                .texture("layer0", mcLoc("item/potion"))
+                .texture("layer1", mcLoc("item/potion_overlay"));
+    }
+
+    private String name(Item item) {
+        return ForgeRegistries.ITEMS.getKey(item).getPath();
     }
 
     private String name(Block block) {

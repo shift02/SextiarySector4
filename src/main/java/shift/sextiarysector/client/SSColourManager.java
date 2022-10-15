@@ -7,6 +7,7 @@ import net.minecraftforge.client.event.RegisterColorHandlersEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.common.Mod;
 import shift.sextiarysector.SSBlocks;
+import shift.sextiarysector.SSItems;
 import shift.sextiarysector.SextiarySector4;
 
 /**
@@ -34,8 +35,12 @@ public class SSColourManager {
     }
 
     @SubscribeEvent
-    public static void registerBlockColourHandlers(final RegisterColorHandlersEvent.Item event) {
+    public static void registerItemColourHandlers(final RegisterColorHandlersEvent.Item event) {
 
+        event.register((itemStack, tintIndex) -> {
+            return tintIndex > 0 ? 0xff8c00 : -1;
+        }, SSItems.SAP_BOTTLE.get());
+        
         event.register((itemStack, tintIndex) -> {
             return 0x58c758;
         }, SSBlocks.LEAF_BLOCK.get());
