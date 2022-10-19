@@ -37,6 +37,10 @@ public class SSLanguageProvider extends LanguageProvider {
 
         addItem(SSItems.SAP_BOTTLE, "Sap Bottle");
 
+        addItem(SSItems.PLASTIC, "Plastic");
+
+        addItem(SSItems.PLASTIC_SHIELD, "Plastic Shield");
+
         addItem(SSItems.SQUID_SASHIMI, "Squid Sashimi");
         addItem(SSItems.SQUID_GRILLED, "Squid Grilled");
     }

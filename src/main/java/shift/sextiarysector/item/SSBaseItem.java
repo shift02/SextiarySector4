@@ -12,8 +12,8 @@ public class SSBaseItem extends Item implements ISimpleTexture {
 
     private boolean customTexture = false;
 
-    public SSBaseItem(Properties p_41383_) {
-        super(p_41383_);
+    public SSBaseItem(Properties properties) {
+        super(properties);
     }
 
     public SSBaseItem enableCustomTexture() {

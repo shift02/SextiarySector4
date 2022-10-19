@@ -33,6 +33,10 @@ public final class SSDataGenerators {
 
         gen.addProvider(event.includeServer(), new SSLootTableProvider(gen));
 
+        SSBlockTagsProvider blockTags = new SSBlockTagsProvider(gen, existingFileHelper);
+        gen.addProvider(event.includeServer(), blockTags);
+        gen.addProvider(event.includeServer(), new SSItemTagsProvider(gen, blockTags, existingFileHelper));
+
 
         //client側
         gen.addProvider(event.includeServer(), new SSLanguageProvider(gen));
