@@ -1,0 +1,19 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "key": {
+    "#": {
+      "tag": "forge:plastic"
+    },
+    "W": {
+      "tag": "forge:ingots/iron"
+    }
+  },
+  "pattern": [
+    " # ",
+    "#W#",
+    "# #"
+  ],
+  "result": {
+    "item": "sextiarysector4:plastic_shield"
+  }
+}

@@ -9,8 +9,10 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.crafting.Ingredient;
 import net.minecraft.world.level.ItemLike;
+import net.minecraftforge.common.Tags;
 import shift.sextiarysector.SSBlocks;
 import shift.sextiarysector.SSItems;
+import shift.sextiarysector.SSTags;
 import shift.sextiarysector.SextiarySector4;
 
 import java.util.function.Consumer;
@@ -55,6 +57,16 @@ public class SSRecipeProvider extends RecipeProvider {
                 .unlockedBy("has_item", has(SSItems.LEAF.get()))
                 .save(consumer);
 
+        //プラスチック盾
+        ShapedRecipeBuilder.shaped(SSItems.PLASTIC_SHIELD.get())
+                .define('#', SSTags.Items.PLASTIC)
+                .define('W', Tags.Items.INGOTS_IRON)
+                .pattern(" # ")
+                .pattern("#W#")
+                .pattern("# #")
+                .unlockedBy("has_item", has(SSItems.PLASTIC.get()))
+                .save(consumer);
+
         //イカ焼き
         cookingFood(consumer,
                 Ingredient.of(SSItems.SQUID_SASHIMI.get()),
@@ -62,6 +74,13 @@ public class SSRecipeProvider extends RecipeProvider {
                 SSItems.SQUID_SASHIMI.get(),
                 "squid_sashimi_to_squid_grilled"
         );
+
+        //プラスチック
+        SimpleCookingRecipeBuilder.smelting(
+                        Ingredient.of(SSItems.SAP_BOTTLE.get()),
+                        SSItems.PLASTIC.get(), 0.7f, 200)
+                .unlockedBy("has_item", has(SSItems.SAP_BOTTLE.get()))
+                .save(consumer, modId("sap_bottle_to_plastic_from_smelting"));
 
     }
 
