@@ -1,8 +1,3 @@
-// 1.19.2	2022-10-19T23:13:49.882469	Block States: sextiarysector4
-cd497ce15934974d97e89f7134e659e8cc4da7b0 assets/sextiarysector4/blockstates/leaf_bed.json
-041abd03c7e1e716729414824a8c4b5e394a77e4 assets/sextiarysector4/models/block/leaf_bed_bottom_wood.json
-a2d4f971e7f7aedc6b0f7a77c28cab8d5897f350 assets/sextiarysector4/models/block/leaf_bed_leaf_base.json
-089f6d96f462fd6ab70c741aa585417c8004c656 assets/sextiarysector4/models/block/leaf_bed_leaf_east.json
-5d012f6a6b1d14f61cd232c735aaddcd644da5e3 assets/sextiarysector4/models/block/leaf_bed_leaf_full.json
-89ebc4ecd3211f2e3b8b23e16ace75152c2e6364 assets/sextiarysector4/models/block/leaf_bed_leaf_west.json
-3ab681f50e0e182ee409382c4467816a82d1de50 assets/sextiarysector4/models/block/leaf_bed_top_wood.json
+// 1.19.2	2022-10-20T22:08:42.2676418	Block States: sextiarysector4
+454f7b2633d0f81c55a68089a7802bcefca4f287 assets/sextiarysector4/blockstates/spile.json
+e62c5b869f8fe39b41bb5de9210b6de72d9c0917 assets/sextiarysector4/models/block/spile.json

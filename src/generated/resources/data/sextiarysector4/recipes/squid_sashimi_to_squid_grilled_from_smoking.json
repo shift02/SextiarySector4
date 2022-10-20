@@ -1,6 +1,6 @@
 {
-  "type": "minecraft:campfire_cooking",
-  "cookingtime": 200,
+  "type": "minecraft:smoking",
+  "cookingtime": 100,
   "experience": 0.7,
   "ingredient": {
     "item": "sextiarysector4:squid_sashimi"

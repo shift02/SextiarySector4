@@ -8,6 +8,7 @@ import net.minecraft.data.recipes.SimpleCookingRecipeBuilder;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.ItemTags;
 import net.minecraft.world.item.crafting.Ingredient;
+import net.minecraft.world.level.ItemLike;
 import shift.sextiarysector.SSBlocks;
 import shift.sextiarysector.SSItems;
 import shift.sextiarysector.SextiarySector4;
@@ -55,11 +56,34 @@ public class SSRecipeProvider extends RecipeProvider {
                 .save(consumer);
 
         //イカ焼き
+        cookingFood(consumer,
+                Ingredient.of(SSItems.SQUID_SASHIMI.get()),
+                SSItems.SQUID_GRILLED.get(),
+                SSItems.SQUID_SASHIMI.get(),
+                "squid_sashimi_to_squid_grilled"
+        );
+
+    }
+
+    private void cookingFood(Consumer<FinishedRecipe> consumer, Ingredient pIngredient, ItemLike pResult, ItemLike unlocked, String path) {
+
         SimpleCookingRecipeBuilder.campfireCooking(
-                        Ingredient.of(SSItems.SQUID_SASHIMI.get()),
-                        SSItems.SQUID_GRILLED.get(), 0.7f, 200)
-                .unlockedBy("has_item", has(SSItems.SQUID_SASHIMI.get()))
-                .save(consumer, modId("squid_sashimi_to_squid_sashimi_from_campfire_cooking"));
+                        pIngredient,
+                        pResult, 0.7f, 600)
+                .unlockedBy("has_item", has(unlocked))
+                .save(consumer, modId(path + "_from_campfire_cooking"));
+
+        SimpleCookingRecipeBuilder.smelting(
+                        pIngredient,
+                        pResult, 0.7f, 200)
+                .unlockedBy("has_item", has(unlocked))
+                .save(consumer, modId(path + "_from_smelting"));
+
+        SimpleCookingRecipeBuilder.smoking(
+                        pIngredient,
+                        pResult, 0.7f, 100)
+                .unlockedBy("has_item", has(unlocked))
+                .save(consumer, modId(path + "_from_smoking"));
 
     }
 

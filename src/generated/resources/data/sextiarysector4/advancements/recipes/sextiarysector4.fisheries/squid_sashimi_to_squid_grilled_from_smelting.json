@@ -15,7 +15,7 @@
     },
     "has_the_recipe": {
       "conditions": {
-        "recipe": "sextiarysector4:squid_sashimi_to_squid_sashimi_from_campfire_cooking"
+        "recipe": "sextiarysector4:squid_sashimi_to_squid_grilled_from_smelting"
       },
       "trigger": "minecraft:recipe_unlocked"
     }
@@ -28,7 +28,7 @@
   ],
   "rewards": {
     "recipes": [
-      "sextiarysector4:squid_sashimi_to_squid_sashimi_from_campfire_cooking"
+      "sextiarysector4:squid_sashimi_to_squid_grilled_from_smelting"
     ]
   }
 }
